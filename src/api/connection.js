@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Swal from 'sweetalert2';
 
 export const sendPetition = async (config) => {
     try {
@@ -47,7 +46,7 @@ export const sendPostBody = async (config, body) => {
 
 export const sendDeleteBody = async (url,config) => {
     try {
-        const response = await axios.delete(url, config);
+        const response = await axios.delete(url);
         return response.data;
     } catch (error) {
         console.log(error)

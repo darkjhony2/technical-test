@@ -1,9 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import CustomizableButton from './CustomizableButton';
+import CustomizableButton from '../CustomizableButton';
+import * as api from '../../api/orderApi'
 
-const CustomizableTable = (props) => {
+const CustomizableTableOrders = (props) => {
+
+
+    async function deleteOrder(id) {
+        await api.deleteOrder(id)
+    }
+
     return (
         <>
             <TableContainer component={Paper}>
@@ -23,13 +30,13 @@ const CustomizableTable = (props) => {
                                 return (
                                     <TableRow>
                                         <TableCell align='left'>{d.id}</TableCell>
-                                        <TableCell align='left'>{d.OrderNumber}</TableCell>
+                                        <TableCell align='left'>{d.orderNumber}</TableCell>
                                         <TableCell align='left'>{d.date}</TableCell>
-                                        <TableCell align='left'>{d.Products}</TableCell>
-                                        <TableCell align='left'>{d.FinalPrice}</TableCell>
+                                        <TableCell align='left'>{d.products}</TableCell>
+                                        <TableCell align='left'>{d.finalPrice}</TableCell>
                                         <TableCell align='left'>
-                                            <CustomizableButton marginRight={8} variant={'contained'} text='Add' />
-                                            <CustomizableButton variant={'contained'} text='Edit' />
+                                            <CustomizableButton marginRight={8} variant={'contained'} text='Edit' />
+                                            <CustomizableButton variant={'contained'} text='Delete' executeFunction={e => deleteOrder(d.id)} />
                                         </TableCell>
                                     </TableRow>);
                             })
@@ -41,9 +48,9 @@ const CustomizableTable = (props) => {
     );
 }
 
-CustomizableTable.propTypes = {
+CustomizableTableOrders.propTypes = {
     tableHeaders: PropTypes.array.isRequired,
     data: PropTypes.array.isRequired
 }
 
-export default CustomizableTable
+export default CustomizableTableOrders
