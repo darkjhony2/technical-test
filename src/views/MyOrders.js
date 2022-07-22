@@ -1,6 +1,6 @@
 import React from 'react'
 import CustomizableButton from '../components/CustomizableButton'
-import CustomizableLabel from '../components/CustomizableLabel'
+import CustomizableTitle from '../components/CustomizableTitle'
 import CustomizableTable from '../components/CustomizableTable'
 
 const MyOrders = (props) => {
@@ -18,13 +18,17 @@ const MyOrders = (props) => {
         { id: 9, Order: 'Roxie', date: 'Harvey', Products: 65, FinalPrice: 35 },
     ];
 
+    function onNewClick() {
+        window.location.href = "/add-order/new";
+    }
+
     return (
         <>
             <div className='title'>
-                <CustomizableLabel text='My Orders' />
+                <CustomizableTitle text='My Orders' />
             </div>
             <div style={{float: 'right', marginRight: '28%', marginTop: '5%'}}>
-                <CustomizableButton variant={'contained'} text='New' />
+                <CustomizableButton executeFunction={onNewClick} variant={'contained'} text='New' />
             </div>
             <div style={{ marginTop: '5%', maxWidth: '50%', marginLeft: '25%' }}>
                 <CustomizableTable tableHeaders={tableHeaders} data={data} />

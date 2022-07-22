@@ -3,8 +3,16 @@ import PropTypes from 'prop-types'
 import { Button } from '@mui/material'
 
 const CustomizableButton = (props) => {
+
+  function executeFunction() {
+    props.executeFunction();
+  }
+
   return (
-    <Button style={{marginRight: props.marginRight != undefined ? props.marginRight : ""}} onClick={e => props.executeFunction} variant={props.variant}>{props.text}</Button>
+    <Button 
+    style={{marginRight: props.marginRight != undefined ? props.marginRight : ""}} 
+    onClick={e => executeFunction()} 
+    variant={props.variant}>{props.text}</Button>
   )
 }
 

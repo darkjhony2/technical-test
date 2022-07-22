@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../home';
+import AddEditOrder from '../views/AddEditOrder';
 import MyOrders from '../views/MyOrders';
 
 export const Router = () => {
@@ -21,6 +22,7 @@ export const Router = () => {
                     <Routes>
                         <Route path='/' element={<Home/>} />
                         <Route path='/my-orders' element={<MyOrders/>} />
+                        <Route path='/add-order/:id' element={<AddEditOrder/>} />
                     </Routes>
                 </BrowserRouter>
             </React.StrictMode>
