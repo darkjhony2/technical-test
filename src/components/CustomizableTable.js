@@ -23,7 +23,7 @@ const CustomizableTable = (props) => {
                                 return (
                                     <TableRow>
                                         <TableCell align='left'>{d.id}</TableCell>
-                                        <TableCell align='left'>{d.Order}</TableCell>
+                                        <TableCell align='left'>{d.OrderNumber}</TableCell>
                                         <TableCell align='left'>{d.date}</TableCell>
                                         <TableCell align='left'>{d.Products}</TableCell>
                                         <TableCell align='left'>{d.FinalPrice}</TableCell>

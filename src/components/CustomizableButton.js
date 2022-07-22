@@ -17,7 +17,7 @@ const CustomizableButton = (props) => {
 }
 
 CustomizableButton.propTypes = {
-    variant: PropTypes.oneOf('text','contained','outlined'),
+    variant: PropTypes.oneOf(['text','contained','outlined']),
     text: PropTypes.string.isRequired,
     executeFunction: PropTypes.func.isRequired,
     marginRight: PropTypes.number
